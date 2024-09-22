@@ -1,9 +1,9 @@
-<h1>AgenceX Landing page</h1>
+<h1>Content Culture Landing page</h1>
 
 A simple landing page for a digital agency
 
-![AgenceX light Theme](./screens/demoLight.webp)
-![AgenceX Dark Theme](./screens/demoDark.webp)
+![Content Culture light Theme](./screens/demoLight.webp)
+![Content Culture Dark Theme](./screens/demoDark.webp)
 
 
 ## Tools
