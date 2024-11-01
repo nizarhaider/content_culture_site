@@ -1,10 +1,10 @@
 ---
+import React from 'react';
 import Service from "../cards/Service.astro";
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 import { services } from "../../utils/data.ts";
-
 
 type ServicesProps = {
     title: string;
@@ -25,6 +25,7 @@ type ServicesProps = {
                 Here is what you will get with us!
             </Paragraph>
         </div>
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {
                     services.map((service: ServicesProps) => {
@@ -37,3 +38,4 @@ type ServicesProps = {
         </div>
     </Container>
 </section>
+
