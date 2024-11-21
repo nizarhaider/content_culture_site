@@ -1,48 +1,180 @@
 ---
-import Info from "../cards/Info.astro";
 import Container from "../shared/Container.astro";
-import Paragraph from "../shared/Paragraph.astro";
-import Title from "../shared/Title.astro";
-
 ---
-
+<style>
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%; /* 16:9 aspect ratio (100 / 9 * 16) */
+      background: #000; /* Optional: Black background for loading */
+      border-radius: 0.5rem; /* To round the corners */
+      overflow: hidden;
+    }
+  
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+</style>
+  
 <section id="about-us">
-    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
-        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-            <div class="w-full h-80 sm:h-96 midmd:h-full relative">
-                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-                
-                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-                <img src={"/images/2127868.jpg"} alt="banner image" 
-                width="1240" height="1385"
-                class=" w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
+    <!-- Long Form Content Section -->
+    <div id="landscape-videos" class="mb-12">
+        <Container className="flex flex-col gap-10">
+            <h2 class="text-xl lg:text-2xl font-bold text-center text-white">Long Form Content</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Landscape Video 1 -->
+                <div class="w-full h-64 relative mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">Podcast Edit</h3>
+                    <iframe
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://www.youtube.com/embed/O3qSwpE66CU"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Landscape Video 2 -->
+                <div class="w-full h-64 relative mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">YouTube Long form</h3>
+                    <iframe
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://www.youtube.com/embed/yyvWWlj0w-k"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Landscape Video 3 -->
+                <div class="w-full h-64 relative mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">Animated Explainer Videos</h3>
+                    <iframe
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://www.youtube.com/embed/rcj9Y9PUDUY"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Landscape Video 4 -->
+                <div class="w-full h-64 relative mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">YouTube Ads</h3>
+                    <iframe
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://www.youtube.com/embed/XeAYKvd1-Vs"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
-        </div>
-        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
-            <Title>
-                We help drive your business forward faster
-            </Title>
-            <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur? Excepturi quibusdam, quam ipsum hic, laudantium ducimus suscipit, culpa facere consequuntur repellat delectus.
-            </Paragraph>
-            <div class="pt-8 grid grid-cols-2 items-center gap-4 max-w-3xl md:max-w-[none]">
-                <Info description="Lorem ipsum dolor sit amet consectetur" title="cock">
-                    <span slot="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                        </svg>                              
-                    </span>
-                </Info>
-                <Info description="Lorem ipsum dolor sit amet consectetur" title="Vision">
-                    <span slot="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </span>
-                </Info>
+
+            <!-- Centered Landscape Video 5 (New) -->
+            <div class="w-full h-64 relative mb-6 flex justify-center">
+                <div class="w-full sm:w-2/3 lg:w-1/2">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">Corporate Showcase</h3>
+                    <iframe
+                        class="w-full h-full object-cover rounded-lg"
+                        src="https://www.youtube.com/embed/wyU5YToKCg4"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
-        </div>
-    </Container>
-</section>
+        </Container>
+    </div>
+
+    
+
+    <!-- Short Form Content Section -->
+    <div id="portrait-videos">
+        <Container className="flex flex-col gap-10">
+            <h2 class="text-xl lg:text-2xl font-bold text-center text-white">Short Form Content</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portrait Video 1 -->
+                <div class="w-full mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">Podcast Shorts</h3>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/gSU9EbiGIi8?feature=share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Portrait Video 2 -->
+                <div class="w-full mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">IG/FB Ads</h3>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/Daj_gmyirgI?feature=share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Portrait Video 3 -->
+                <div class="w-full mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">Shorts/Reels Edits</h3>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/2U9W5BhypXk?feature=share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Portrait Video 4 -->
+                <div class="w-full mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">Animated Shorts/Reels Edits</h3>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/oLAi3KHZUqg"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Portrait Video 5 -->
+                <div class="w-full mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">Animated Shorts/Reels Edits</h3>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/U43B0uLyH_s?feature=share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Portrait Video 6 -->
+                <div class="w-full mb-6">
+                    <h3 class="text-center text-lg font-bold text-white mb-2">YouTube/IG Ads</h3>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/8ALNB29Zsv0?feature=share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </div>
+    </section>
