@@ -1,180 +1,383 @@
 ---
 import Container from "../shared/Container.astro";
 ---
+
 <style>
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-top: 177.78%; /* 16:9 aspect ratio (100 / 9 * 16) */
-      background: #000; /* Optional: Black background for loading */
-      border-radius: 0.5rem; /* To round the corners */
-      overflow: hidden;
-    }
-  
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-  
-    .mb-6 {
-      margin-bottom: 1.5rem;
-    }
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%;
+    background: #000;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .tab {
+    @apply px-6 py-3 text-lg font-medium rounded-lg transition-colors duration-200;
+  }
+
+  .tab-active {
+    @apply bg-blue-600 text-white;
+  }
+
+  .tab-inactive {
+    @apply text-gray-400 hover:text-white hover:bg-blue-500/20;
+  }
+
+  .price-button {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition-colors duration-200 text-white cursor-pointer;
+  }
+
+  .price-content {
+    @apply mt-2 p-4 rounded-lg bg-blue-900/50 text-white transition-all duration-200 overflow-hidden;
+  }
+
+  .hide-price {
+    @apply h-0 p-0 opacity-0;
+  }
 </style>
+
+<section id="about-us" class="py-12">
+  <Container>
+    <div class="flex flex-col items-center gap-8">
+      <!-- Tab Navigation -->
+      <div class="flex gap-4 mb-8">
+        <button id="long-form-tab" class="tab tab-active" data-tab="long-form">
+          Long Form Content
+        </button>
+        <button id="short-form-tab" class="tab tab-inactive" data-tab="short-form">
+          Short Form Content
+        </button>
+      </div>
+
+      <!-- Long Form Content -->
+      <div id="long-form-content" class="w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            <!-- Long Form Videos -->
+            <div class="w-full relative">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-2">Podcast Edit</h3>
+                <p class="text-gray-300 mb-4">Professional podcast editing with enhanced audio quality and seamless transitions.</p>
+                <div class="h-64 mb-4">
+                  <iframe class="w-full h-full object-cover rounded-lg" src="https://www.youtube.com/embed/O3qSwpE66CU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button class="price-button" data-price-id="podcast-edit">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Show Price
+                </button>
+                <div class="price-content hide-price" id="podcast-edit-price">
+                  <p class="text-2xl font-bold">LKR 999</p>
+                  <p class="text-sm text-gray-300">Includes 2 rounds of revisions</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full relative">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-2">YouTube Long Form</h3>
+                <p class="text-gray-300 mb-4">Extended video content optimized for YouTube audiences.</p>
+                <div class="h-64 mb-4">
+                  <iframe class="w-full h-full object-cover rounded-lg" src="https://www.youtube.com/embed/yyvWWlj0w-k" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button class="price-button" data-price-id="youtube-long">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Show Price
+                </button>
+                <div class="price-content hide-price" id="youtube-long-price">
+                  <p class="text-2xl font-bold">LKR 999</p>
+                  <p class="text-sm text-gray-300">Includes 3 rounds of revisions</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full relative">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-2">Animated Explainer Videos</h3>
+                <p class="text-gray-300 mb-4">Engaging animated videos to explain complex concepts easily.</p>
+                <div class="h-64 mb-4">
+                  <iframe class="w-full h-full object-cover rounded-lg" src="https://www.youtube.com/embed/rcj9Y9PUDUY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button class="price-button" data-price-id="animated-explainer">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Show Price
+                </button>
+                <div class="price-content hide-price" id="animated-explainer-price">
+                  <p class="text-2xl font-bold">LKR 999</p>
+                  <p class="text-sm text-gray-300">Includes 5 rounds of revisions</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full relative">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-2">YouTube Ads</h3>
+                <p class="text-gray-300 mb-4">Compelling ad videos designed to capture attention and drive action.</p>
+                <div class="h-64 mb-4">
+                  <iframe class="w-full h-full object-cover rounded-lg" src="https://www.youtube.com/embed/XeAYKvd1-Vs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button class="price-button" data-price-id="youtube-ads">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Show Price
+                </button>
+                <div class="price-content hide-price" id="youtube-ads-price">
+                  <p class="text-2xl font-bold">LKR 999</p>
+                  <p class="text-sm text-gray-300">Includes 2 rounds of revisions</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full relative">
+              <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-2">Corporate Showcase</h3>
+                <p class="text-gray-300 mb-4">Highlight your company's strengths and achievements with a polished video.</p>
+                <div class="h-64 mb-4">
+                  <iframe class="w-full h-full object-cover rounded-lg" src="https://www.youtube.com/embed/wyU5YToKCg4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button class="price-button" data-price-id="corporate-showcase">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Show Price
+                </button>
+                <div class="price-content hide-price" id="corporate-showcase-price">
+                  <p class="text-2xl font-bold">LKR 999</p>
+                  <p class="text-sm text-gray-300">Includes unlimited revisions</p>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Short Form Content -->
+      <div id="short-form-content" class="w-full hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Short Form Videos -->
+          <div class="w-full">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-white mb-2">Podcast Shorts</h3>
+              <p class="text-gray-300 mb-4">Engaging short-form content perfect for social media engagement.</p>
+              <div class="video-wrapper mb-4">
+                <iframe src="https://www.youtube.com/embed/gSU9EbiGIi8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <button class="price-button" data-price-id="podcast-shorts">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Show Price
+              </button>
+              <div class="price-content hide-price" id="podcast-shorts-price">
+                <p class="text-2xl font-bold">LKR 999</p>
+                <p class="text-sm text-gray-300">Includes 1 round of revisions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-white mb-2">IG/FB Ads</h3>
+              <p class="text-gray-300 mb-4">Effective advertisements tailored for Instagram and Facebook platforms.</p>
+              <div class="video-wrapper mb-4">
+                <iframe src="https://www.youtube.com/embed/Daj_gmyirgI?feature=share" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <button class="price-button" data-price-id="ig-fb-ads">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Show Price
+              </button>
+              <div class="price-content hide-price" id="ig-fb-ads-price">
+                <p class="text-2xl font-bold">LKR 999</p>
+                <p class="text-sm text-gray-300">Includes 2 rounds of revisions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-white mb-2">Shorts/Reels Edits</h3>
+              <p class="text-gray-300 mb-4">Quick and captivating edits for your social media shorts and reels.</p>
+              <div class="video-wrapper mb-4">
+                <iframe src="https://www.youtube.com/embed/2U9W5BhypXk?feature=share" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <button class="price-button" data-price-id="shorts-reels">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Show Price
+              </button>
+              <div class="price-content hide-price" id="shorts-reels-price">
+                <p class="text-2xl font-bold">LKR 999</p>
+                <p class="text-sm text-gray-300">Includes 1 round of revisions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-white mb-2">Animated Shorts/Reels Edits (1)</h3>
+              <p class="text-gray-300 mb-4">Animated edits that bring life to your social media shorts and reels.</p>
+              <div class="video-wrapper mb-4">
+                <iframe src="https://www.youtube.com/embed/oLAi3KHZUqg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <button class="price-button" data-price-id="animated-shorts-reels-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Show Price
+              </button>
+              <div class="price-content hide-price" id="animated-shorts-reels-1-price">
+                <p class="text-2xl font-bold">LKR 999</p>
+                <p class="text-sm text-gray-300">Includes 1 round of revisions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-white mb-2">Animated Shorts/Reels Edits (2)</h3>
+              <p class="text-gray-300 mb-4">Another variation of captivating animated shorts and reels edits.</p>
+              <div class="video-wrapper mb-4">
+                <iframe src="https://www.youtube.com/embed/U43B0uLyH_s?feature=share" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <button class="price-button" data-price-id="animated-shorts-reels-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Show Price
+              </button>
+              <div class="price-content hide-price" id="animated-shorts-reels-2-price">
+                <p class="text-2xl font-bold">LKR 999</p>
+                <p class="text-sm text-gray-300">Includes 1 round of revisions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <div class="bg-gray-800 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-white mb-2">YouTube/IG Ads</h3>
+              <p class="text-gray-300 mb-4">Optimized ad content for YouTube and Instagram to maximize reach.</p>
+              <div class="video-wrapper mb-4">
+                <iframe src="https://www.youtube.com/embed/8ALNB29Zsv0?feature=share" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <button class="price-button" data-price-id="youtube-ig-ads">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Show Price
+              </button>
+              <div class="price-content hide-price" id="youtube-ig-ads-price">
+                <p class="text-2xl font-bold">LKR 999</p>
+                <p class="text-sm text-gray-300">Includes 2 rounds of revisions</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Tab switching logic
+  const tabs = document.querySelectorAll('[data-tab]');
   
-<section id="about-us">
-    <!-- Long Form Content Section -->
-    <div id="landscape-videos" class="mb-12">
-        <Container className="flex flex-col gap-10">
-            <h2 class="text-xl lg:text-2xl font-bold text-center text-white">Long Form Content</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Landscape Video 1 -->
-                <div class="w-full h-64 relative mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">Podcast Edit</h3>
-                    <iframe
-                        class="w-full h-full object-cover rounded-lg"
-                        src="https://www.youtube.com/embed/O3qSwpE66CU"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabType = tab.getAttribute('data-tab');
+      const longFormContent = document.getElementById('long-form-content');
+      const shortFormContent = document.getElementById('short-form-content');
+      const longFormTab = document.getElementById('long-form-tab');
+      const shortFormTab = document.getElementById('short-form-tab');
 
-                <!-- Landscape Video 2 -->
-                <div class="w-full h-64 relative mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">YouTube Long form</h3>
-                    <iframe
-                        class="w-full h-full object-cover rounded-lg"
-                        src="https://www.youtube.com/embed/yyvWWlj0w-k"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+      if (!longFormContent || !shortFormContent || !longFormTab || !shortFormTab) return;
 
-                <!-- Landscape Video 3 -->
-                <div class="w-full h-64 relative mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">Animated Explainer Videos</h3>
-                    <iframe
-                        class="w-full h-full object-cover rounded-lg"
-                        src="https://www.youtube.com/embed/rcj9Y9PUDUY"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+      if (tabType === 'long-form') {
+        longFormContent.classList.remove('hidden');
+        shortFormContent.classList.add('hidden');
+        longFormTab.classList.remove('tab-inactive');
+        longFormTab.classList.add('tab-active');
+        shortFormTab.classList.remove('tab-active');
+        shortFormTab.classList.add('tab-inactive');
+      } else {
+        longFormContent.classList.add('hidden');
+        shortFormContent.classList.remove('hidden');
+        longFormTab.classList.remove('tab-active');
+        longFormTab.classList.add('tab-inactive');
+        shortFormTab.classList.remove('tab-inactive');
+        shortFormTab.classList.add('tab-active');
+      }
+    });
+  });
 
-                <!-- Landscape Video 4 -->
-                <div class="w-full h-64 relative mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">YouTube Ads</h3>
-                    <iframe
-                        class="w-full h-full object-cover rounded-lg"
-                        src="https://www.youtube.com/embed/XeAYKvd1-Vs"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
+  // Price reveal logic
+  const priceButtons = document.querySelectorAll('[data-price-id]');
+  
+  priceButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const priceId = button.getAttribute('data-price-id');
+      if (!priceId) return;
 
-            <!-- Centered Landscape Video 5 (New) -->
-            <div class="w-full h-64 relative mb-6 flex justify-center">
-                <div class="w-full sm:w-2/3 lg:w-1/2">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">Corporate Showcase</h3>
-                    <iframe
-                        class="w-full h-full object-cover rounded-lg"
-                        src="https://www.youtube.com/embed/wyU5YToKCg4"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </Container>
-    </div>
+      const priceContent = document.getElementById(`${priceId}-price`);
+      if (!priceContent) return;
 
-    
-
-    <!-- Short Form Content Section -->
-    <div id="portrait-videos">
-        <Container className="flex flex-col gap-10">
-            <h2 class="text-xl lg:text-2xl font-bold text-center text-white">Short Form Content</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Portrait Video 1 -->
-                <div class="w-full mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">Podcast Shorts</h3>
-                    <div class="video-wrapper">
-                        <iframe
-                            src="https://www.youtube.com/embed/gSU9EbiGIi8?feature=share"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Portrait Video 2 -->
-                <div class="w-full mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">IG/FB Ads</h3>
-                    <div class="video-wrapper">
-                        <iframe
-                            src="https://www.youtube.com/embed/Daj_gmyirgI?feature=share"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Portrait Video 3 -->
-                <div class="w-full mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">Shorts/Reels Edits</h3>
-                    <div class="video-wrapper">
-                        <iframe
-                            src="https://www.youtube.com/embed/2U9W5BhypXk?feature=share"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Portrait Video 4 -->
-                <div class="w-full mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">Animated Shorts/Reels Edits</h3>
-                    <div class="video-wrapper">
-                        <iframe
-                            src="https://www.youtube.com/embed/oLAi3KHZUqg"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Portrait Video 5 -->
-                <div class="w-full mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">Animated Shorts/Reels Edits</h3>
-                    <div class="video-wrapper">
-                        <iframe
-                            src="https://www.youtube.com/embed/U43B0uLyH_s?feature=share"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Portrait Video 6 -->
-                <div class="w-full mb-6">
-                    <h3 class="text-center text-lg font-bold text-white mb-2">YouTube/IG Ads</h3>
-                    <div class="video-wrapper">
-                        <iframe
-                            src="https://www.youtube.com/embed/8ALNB29Zsv0?feature=share"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </Container>
-    </div>
-    </section>
+      const isHidden = priceContent.classList.contains('hide-price');
+      const svg = button.querySelector('svg');
+      const textElement = button.querySelector('svg + text');
+      
+      if (isHidden) {
+        priceContent.classList.remove('hide-price');
+        if (svg) {
+          svg.innerHTML = `
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          `;
+        }
+        if (textElement) {
+          textElement.textContent = 'Hide Price';
+        }
+      } else {
+        priceContent.classList.add('hide-price');
+        if (svg) {
+          svg.innerHTML = `
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          `;
+        }
+        if (textElement) {
+          textElement.textContent = 'Show Price';
+        }
+      }
+    });
+  });
+});
+</script>
