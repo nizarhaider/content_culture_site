@@ -1,10 +1,64 @@
 ---
-import "./WhatsApp.css";
-
 const { useApi = false, mobile = '762756662', message="Hello ContentCulture, I'd like to know more about your services?" } = Astro.props;
 
 const url = useApi ? `https://api.whatsapp.com/send?phone=${mobile}&text=${message}` : `https://wa.me/${mobile}`;
 ---
+<style>
+  .astro-whatsapp {
+    position: fixed;
+    width: 4rem;
+    height: 4rem;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    background-color: #25D366;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  
+    /* Placements */
+    @media (min-width: 768px) {
+      bottom: 3rem;
+      right: 3rem;
+    }
+  
+    @media (min-width: 1280px) {
+      bottom: 6rem;
+      right: 6rem;
+    }
+  
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+  
+    .whatsapp-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  
+    svg {
+      width: 60%;
+      height: 60%;
+    }
+  
+    .notification-circle {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      display: none; /* Initially hidden */
+    }
+  }
+</style>
 <div class="astro-whatsapp">
     <a href={url} target="_blank" class="whatsapp-link">
       <svg version="1.1" viewBox="0 0 47.655 47.872" xmlns="http://www.w3.org/2000/svg">
